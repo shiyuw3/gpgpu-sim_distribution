@@ -209,8 +209,8 @@ gpgpu_sim *gpgpu_context::gpgpu_ptx_sim_init_perf() {
   the_gpgpusim->g_the_gpu_config = new gpgpu_sim_config(this);
   the_gpgpusim->g_the_gpu_config->reg_options(
       opp);  // register GPU microrachitecture options
-  the_gpgpusim->g_the_gpu_config->convert_byte_string();
   option_parser_cmdline(opp, sg_argc, sg_argv);  // parse configuration options
+  the_gpgpusim->g_the_gpu_config->convert_byte_string();
 
   fprintf(stdout, "GPGPU-Sim: Configuration options:\n\n");
   option_parser_print(opp, stdout);

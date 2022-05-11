@@ -451,7 +451,7 @@ class simt_stack {
 const unsigned long long MEM_SPACE_LIMIT = 0x100000000;
 const unsigned long long GLOBAL_HEAP_START = 0x80000000;
 // fix the max addressable global mem size as 1GB instead of dynamically deciding
-const unsigned long long GLOBAL_MEM_SIZE_MAX = (2 * 1024 * 1024 * 1024);
+const unsigned long long GLOBAL_MEM_SIZE_MAX = (1 * 1024 * 1024 * 1024);
 // Volta max shmem size is 96kB
 const unsigned long long SHARED_MEM_SIZE_MAX = 96 * (1 << 10);
 // Volta max local mem is 16kB
@@ -696,7 +696,7 @@ class gpgpu_t {
   class memory_space *m_global_mem;
   class memory_space *m_tex_mem;
   class memory_space *m_surf_mem;
-  
+
   unsigned long long
       m_dev_malloc; // variable to store a known heap pointer for unmanaged
                     // allocation (cudaMalloc, cudaMallocArray)
@@ -1232,7 +1232,7 @@ class warp_inst_t : public inst_t {
   void accessq_push_back(mem_access_t mem_access) {
     m_accessq.push_back(mem_access);
   }
-  
+
   const mem_access_t &accessq_back() { return m_accessq.back(); }
   void accessq_pop_back() { m_accessq.pop_back(); }
 
